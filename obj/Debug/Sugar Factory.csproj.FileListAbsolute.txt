@@ -1,0 +1,10 @@
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\bin\Debug\Sugar Factory.exe.config
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\bin\Debug\Sugar Factory.exe
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\bin\Debug\Sugar Factory.pdb
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.csproj.AssemblyReference.cache
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.MainMenu.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Properties.Resources.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.csproj.GenerateResource.cache
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.csproj.CoreCompileInputs.cache
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.exe
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.pdb
