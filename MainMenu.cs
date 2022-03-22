@@ -18,6 +18,8 @@ namespace Sugar_Factory
             InitializeComponent();
         }
 
+        public string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\Database.mdf;Integrated Security=True";
+
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Products products = new Products();

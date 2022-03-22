@@ -16,5 +16,12 @@ namespace Sugar_Factory
         {
             InitializeComponent();
         }
+
+        private void Products_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'databaseDataSet.Products' table. You can move, or remove it, as needed.
+            this.productsTableAdapter.Fill(this.databaseDataSet.Products);
+
+        }
     }
 }
