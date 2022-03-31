@@ -147,7 +147,44 @@ namespace Sugar_Factory
 
         private void button_DeleteClick(object sender, EventArgs e)
         {
-            
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("DELETE Products WHERE code = @code", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT code FROM Products WHERE code = @code", myConnection);
+
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@code", textBox1.Text);
+
+                checkCode.Parameters.AddWithValue("@code", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such code in the database", "Code not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("Code cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Product deleted successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_SaveToTxtClick(object sender, EventArgs e)
