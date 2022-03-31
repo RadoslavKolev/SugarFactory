@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseDataSetClients.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSetClients.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +97,9 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +125,17 @@
     </None>
     <None Include="DatabaseDataSet1.xss">
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSetClients.xsc">
+      <DependentUpon>DatabaseDataSetClients.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSetClients.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSetClients.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSetClients.xss">
+      <DependentUpon>DatabaseDataSetClients.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
