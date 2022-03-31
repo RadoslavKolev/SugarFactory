@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
@@ -50,17 +45,149 @@ namespace Sugar_Factory
 
         private void button_InsertClick(object sender, EventArgs e)
         {
+            try
+            {
+                if (textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "")
+                    MessageBox.Show("Fields cannot be empty (except id)", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (!textBox4.Text.Contains("@"))
+                    MessageBox.Show("Email must have \"@\" symbol!", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (textBox4.Text.EndsWith("@"))
+                    MessageBox.Show("Email must have the mail site after \"@\"!", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (textBox5.Text.Length != 10)
+                    MessageBox.Show("Phone number must have 10 symbols", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myConnection = new SqlConnection(menu.connection);
+                    myCommand = new SqlCommand("INSERT INTO Clients VALUES(@name, @address, @email, @phone, @city)", myConnection);
 
+                    myConnection.Open();
+                    myCommand.Parameters.AddWithValue("@name", textBox2.Text);
+                    myCommand.Parameters.AddWithValue("@address", textBox3.Text);
+                    myCommand.Parameters.AddWithValue("@email", textBox4.Text);
+                    myCommand.Parameters.AddWithValue("@phone", textBox5.Text);
+                    myCommand.Parameters.AddWithValue("@city", textBox6.Text);
+
+
+                    myCommand.ExecuteNonQuery();
+                    MessageBox.Show("Client added successfully!");
+
+                    myConnection.Close();
+                    DisplayData();
+
+                    if (myConnection.State == ConnectionState.Open)
+                        myConnection.Dispose();
+
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    textBox6.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_UpdateClick(object sender, EventArgs e)
         {
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("UPDATE Clients SET name = @name, address = @address, email = @email, phone = @phone, city = @city WHERE client_id = @id", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT client_id FROM Clients WHERE client_id = @id", myConnection);
 
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@id", textBox1.Text);
+                myCommand.Parameters.AddWithValue("@name", textBox2.Text);
+                myCommand.Parameters.AddWithValue("@address", textBox3.Text);
+                myCommand.Parameters.AddWithValue("@email", textBox4.Text);
+                myCommand.Parameters.AddWithValue("@phone", textBox5.Text);
+                myCommand.Parameters.AddWithValue("@city", textBox6.Text);
+
+                checkCode.Parameters.AddWithValue("@id", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such client ID in the database", "Client ID not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("ID cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (!textBox4.Text.Contains("@"))
+                    MessageBox.Show("Email must have \"@\" symbol!", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (textBox4.Text.EndsWith("@"))
+                    MessageBox.Show("Email must have the mail site after \"@\"!", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (textBox5.Text.Length != 10)
+                    MessageBox.Show("Phone number must have 10 symbols", "Incorrect Syntax", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Client updated successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_DeleteClick(object sender, EventArgs e)
         {
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("DELETE Clients WHERE client_id = @id", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT client_id FROM Clients WHERE client_id = @id", myConnection);
 
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@id", textBox1.Text);
+
+                checkCode.Parameters.AddWithValue("@id", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such client ID in the database", "Code not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("ID cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Client deleted successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DataTableToTextFile(DataTable dt, string outputFilePath)
@@ -133,6 +260,16 @@ namespace Sugar_Factory
             MainMenu menu = new MainMenu();
             menu.Show();
             this.Close();
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
     }
 }
