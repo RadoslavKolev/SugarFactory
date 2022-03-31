@@ -56,9 +56,13 @@ namespace Sugar_Factory
             try
             {
                 if (textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || richTextBox1.Text == "")
-                    MessageBox.Show("The first 5 fields cannot be empty", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Fields cannot be empty (except code)", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (Double.Parse(textBox3.Text) <= 0.0)
                     MessageBox.Show("Price cannot be lower than 0", "Price lower than 0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (Int32.Parse(textBox4.Text) <= 0)
+                    MessageBox.Show("Quantity cannot be lower than 0", "Quantity lower than 0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (dateTimePicker2.Value < dateTimePicker1.Value)
+                    MessageBox.Show("Expiration date cannot be lower than the manufacture date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     myConnection = new SqlConnection(menu.connection);
