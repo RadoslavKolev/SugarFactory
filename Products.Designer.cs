@@ -63,6 +63,7 @@ namespace Sugar_Factory
             this.label10 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -72,6 +73,7 @@ namespace Sugar_Factory
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.button4);
@@ -184,11 +186,11 @@ namespace Sugar_Factory
             this.label1.BackColor = System.Drawing.Color.SaddleBrown;
             this.label1.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(112, 21);
+            this.label1.Location = new System.Drawing.Point(97, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 31);
+            this.label1.Size = new System.Drawing.Size(233, 31);
             this.label1.TabIndex = 82;
-            this.label1.Text = "Product Info";
+            this.label1.Text = "PRODUCT INFO";
             // 
             // label3
             // 
@@ -196,7 +198,7 @@ namespace Sugar_Factory
             this.label3.BackColor = System.Drawing.Color.SaddleBrown;
             this.label3.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(476, 326);
+            this.label3.Location = new System.Drawing.Point(473, 396);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(196, 21);
             this.label3.TabIndex = 88;
@@ -208,7 +210,7 @@ namespace Sugar_Factory
             this.label4.BackColor = System.Drawing.Color.SaddleBrown;
             this.label4.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(453, 282);
+            this.label4.Location = new System.Drawing.Point(450, 352);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(219, 21);
             this.label4.TabIndex = 87;
@@ -218,7 +220,7 @@ namespace Sugar_Factory
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Lucida Handwriting", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(678, 279);
+            this.dateTimePicker1.Location = new System.Drawing.Point(675, 349);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(206, 24);
             this.dateTimePicker1.TabIndex = 89;
@@ -227,7 +229,7 @@ namespace Sugar_Factory
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Lucida Handwriting", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(678, 326);
+            this.dateTimePicker2.Location = new System.Drawing.Point(675, 396);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(206, 24);
             this.dateTimePicker2.TabIndex = 90;
@@ -237,24 +239,26 @@ namespace Sugar_Factory
             this.button3.BackColor = System.Drawing.SystemColors.Control;
             this.button3.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(257, 523);
+            this.button3.Location = new System.Drawing.Point(255, 523);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 35);
             this.button3.TabIndex = 95;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button_DeleteClick);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.Control;
             this.button2.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(142, 524);
+            this.button2.Location = new System.Drawing.Point(140, 524);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 33);
             this.button2.TabIndex = 94;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button_UpdateClick);
             // 
             // button1
             // 
@@ -262,12 +266,13 @@ namespace Sugar_Factory
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Lucida Handwriting", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(28, 524);
+            this.button1.Location = new System.Drawing.Point(26, 524);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 33);
             this.button1.TabIndex = 93;
             this.button1.Text = "Insert";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button_InsertClick);
             // 
             // richTextBox1
             // 
@@ -291,7 +296,7 @@ namespace Sugar_Factory
             this.expirationdateDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.productsBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(450, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(450, 81);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(628, 234);
             this.dataGridView1.TabIndex = 96;
@@ -362,11 +367,11 @@ namespace Sugar_Factory
             this.label10.BackColor = System.Drawing.Color.SaddleBrown;
             this.label10.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(101, 291);
+            this.label10.Location = new System.Drawing.Point(84, 293);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 31);
+            this.label10.Size = new System.Drawing.Size(209, 31);
             this.label10.TabIndex = 97;
-            this.label10.Text = "Description";
+            this.label10.Text = "DESCRIPTION";
             // 
             // button5
             // 
@@ -380,6 +385,7 @@ namespace Sugar_Factory
             this.button5.TabIndex = 68;
             this.button5.Text = "Back to Main";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button_BackToMainClick);
             // 
             // button4
             // 
@@ -393,6 +399,19 @@ namespace Sugar_Factory
             this.button4.TabIndex = 67;
             this.button4.Text = "Save to .txt";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button_SaveToTxtClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.SaddleBrown;
+            this.label5.Font = new System.Drawing.Font("Lucida Handwriting", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(697, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 31);
+            this.label5.TabIndex = 98;
+            this.label5.Text = "DATABASE";
             // 
             // Products
             // 
@@ -450,5 +469,6 @@ namespace Sugar_Factory
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturedateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expirationdateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label5;
     }
 }

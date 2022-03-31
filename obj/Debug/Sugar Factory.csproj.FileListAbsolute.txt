@@ -8,3 +8,6 @@ D:\ТУ-Варна\Семестър 8\Информационни системи\
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.csproj.CoreCompileInputs.cache
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.exe
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar Factory.pdb
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\bin\Debug\Database.mdf
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\bin\Debug\Database_log.ldf
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Products.resources
