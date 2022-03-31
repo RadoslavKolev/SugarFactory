@@ -101,12 +101,53 @@ namespace Sugar_Factory
 
         private void button_UpdateClick(object sender, EventArgs e)
         {
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("UPDATE Products SET quantity = @quantity WHERE code = @code", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT code FROM Products WHERE code = @code", myConnection);
 
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@code", textBox1.Text);
+                myCommand.Parameters.AddWithValue("@quantity", textBox4.Text);
+
+                checkCode.Parameters.AddWithValue("@code", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such code in the database", "Code not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("Code cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (Int32.Parse(textBox4.Text) <= 0)
+                    MessageBox.Show("Quantity cannot be lower than 0", "Quantity lower than 0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Quantity updated successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+                textBox4.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_DeleteClick(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button_SaveToTxtClick(object sender, EventArgs e)
