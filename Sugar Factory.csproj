@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSetClients.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DatabaseDataSet1.xsc">
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
     </None>
@@ -125,6 +133,17 @@
     </None>
     <None Include="DatabaseDataSet1.xss">
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet11.xsc">
+      <DependentUpon>DatabaseDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DatabaseDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DatabaseDataSet11.xss">
+      <DependentUpon>DatabaseDataSet11.xsd</DependentUpon>
     </None>
     <None Include="DatabaseDataSetClients.xsc">
       <DependentUpon>DatabaseDataSetClients.xsd</DependentUpon>
