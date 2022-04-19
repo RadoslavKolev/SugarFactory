@@ -44,17 +44,131 @@ namespace Sugar_Factory
 
         private void button_InsertClick(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if (textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "")
+                    MessageBox.Show("Fields cannot be empty (except sales_code)", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myConnection = new SqlConnection(menu.connection);
+                    myCommand = new SqlCommand("INSERT INTO Sales VALUES(@stock_code, @client_id, @quantity, @sale_date, @price)", myConnection);
+
+                    myConnection.Open();
+                    myCommand.Parameters.AddWithValue("@stock_code", textBox2.Text);
+                    myCommand.Parameters.AddWithValue("@client_id", textBox3.Text);
+                    myCommand.Parameters.AddWithValue("@quantity", textBox4.Text);
+                    myCommand.Parameters.AddWithValue("@price", textBox5.Text);
+                    myCommand.Parameters.Add("@sale_date", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+
+
+                    myCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sale added successfully!");
+
+                    myConnection.Close();
+                    DisplayData();
+
+                    if (myConnection.State == ConnectionState.Open)
+                        myConnection.Dispose();
+
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
+                    dateTimePicker1.ResetText();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_UpdateClick(object sender, EventArgs e)
         {
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("UPDATE Sales SET quantity = @quantity WHERE sale_code = @sale_code", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT sale_code FROM Sales WHERE sale_code = @sale_code", myConnection);
 
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@sale_code", textBox1.Text);
+                myCommand.Parameters.AddWithValue("@quantity", textBox4.Text);
+
+                checkCode.Parameters.AddWithValue("@sale_code", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such code in the database", "Code not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("Sale code cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (Int32.Parse(textBox4.Text) <= 0)
+                    MessageBox.Show("Quantity cannot be lower than 0", "Quantity lower than 0", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Quantity updated successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+                textBox4.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_DeleteClick(object sender, EventArgs e)
         {
+            try
+            {
+                myConnection = new SqlConnection(menu.connection);
+                myCommand = new SqlCommand("DELETE Sales WHERE sale_code = @sale_code", myConnection);
+                SqlCommand checkCode = new SqlCommand("SELECT sale_code FROM Sales WHERE sale_code = @sale_code", myConnection);
 
+                myConnection.Open();
+                myCommand.Parameters.AddWithValue("@sale_code", textBox1.Text);
+
+                checkCode.Parameters.AddWithValue("@sale_code", textBox1.Text);
+
+                SqlDataReader sdr = checkCode.ExecuteReader();
+
+                if (!sdr.HasRows)
+                    MessageBox.Show("No such sale code in the database", "Code not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    sdr.Close();
+
+                if (textBox1.Text == "")
+                    MessageBox.Show("Sale code cannot be empty!", "Empty fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    myCommand.ExecuteNonQuery();
+                    myConnection.Close();
+
+                    MessageBox.Show("Sale deleted successfully!");
+                    DisplayData();
+                }
+
+                if (myConnection.State == ConnectionState.Open)
+                    myConnection.Dispose();
+
+                textBox1.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DataTableToTextFile(DataTable dt, string outputFilePath)
