@@ -35,8 +35,14 @@ namespace Sugar_Factory
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.catalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesByClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesByStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesByPriceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesByQuantityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientsByCityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +65,7 @@ namespace Sugar_Factory
             this.productsToolStripMenuItem,
             this.salesToolStripMenuItem,
             this.clientsToolStripMenuItem,
+            this.catalogToolStripMenuItem,
             this.queriesToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -88,6 +95,18 @@ namespace Sugar_Factory
             this.clientsToolStripMenuItem.Text = "Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
+            // queriesToolStripMenuItem
+            // 
+            this.queriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salesByClientToolStripMenuItem,
+            this.salesByStockToolStripMenuItem,
+            this.salesByPriceToolStripMenuItem,
+            this.salesByQuantityToolStripMenuItem,
+            this.clientsByCityToolStripMenuItem});
+            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
+            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(97, 25);
+            this.queriesToolStripMenuItem.Text = "Queries";
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -95,11 +114,47 @@ namespace Sugar_Factory
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // queriesToolStripMenuItem
+            // catalogToolStripMenuItem
             // 
-            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
-            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(97, 25);
-            this.queriesToolStripMenuItem.Text = "Queries";
+            this.catalogToolStripMenuItem.Name = "catalogToolStripMenuItem";
+            this.catalogToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
+            this.catalogToolStripMenuItem.Text = "Catalog";
+            this.catalogToolStripMenuItem.Click += new System.EventHandler(this.catalogToolStripMenuItem_Click);
+            // 
+            // salesByClientToolStripMenuItem
+            // 
+            this.salesByClientToolStripMenuItem.Name = "salesByClientToolStripMenuItem";
+            this.salesByClientToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.salesByClientToolStripMenuItem.Text = "Sales By Client";
+            this.salesByClientToolStripMenuItem.Click += new System.EventHandler(this.salesByClientToolStripMenuItem_Click);
+            // 
+            // salesByStockToolStripMenuItem
+            // 
+            this.salesByStockToolStripMenuItem.Name = "salesByStockToolStripMenuItem";
+            this.salesByStockToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.salesByStockToolStripMenuItem.Text = "Sales By Stock";
+            this.salesByStockToolStripMenuItem.Click += new System.EventHandler(this.salesByStockToolStripMenuItem_Click);
+            // 
+            // salesByPriceToolStripMenuItem
+            // 
+            this.salesByPriceToolStripMenuItem.Name = "salesByPriceToolStripMenuItem";
+            this.salesByPriceToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.salesByPriceToolStripMenuItem.Text = "Sales By Price";
+            this.salesByPriceToolStripMenuItem.Click += new System.EventHandler(this.salesByPriceToolStripMenuItem_Click);
+            // 
+            // salesByQuantityToolStripMenuItem
+            // 
+            this.salesByQuantityToolStripMenuItem.Name = "salesByQuantityToolStripMenuItem";
+            this.salesByQuantityToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.salesByQuantityToolStripMenuItem.Text = "Sales By Quantity";
+            this.salesByQuantityToolStripMenuItem.Click += new System.EventHandler(this.salesByQuantityToolStripMenuItem_Click);
+            // 
+            // clientsByCityToolStripMenuItem
+            // 
+            this.clientsByCityToolStripMenuItem.Name = "clientsByCityToolStripMenuItem";
+            this.clientsByCityToolStripMenuItem.Size = new System.Drawing.Size(256, 26);
+            this.clientsByCityToolStripMenuItem.Text = "Clients By City";
+            this.clientsByCityToolStripMenuItem.Click += new System.EventHandler(this.clientsByCityToolStripMenuItem_Click);
             // 
             // MainMenu
             // 
@@ -131,6 +186,12 @@ namespace Sugar_Factory
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queriesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem catalogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesByClientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesByStockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesByPriceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesByQuantityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientsByCityToolStripMenuItem;
     }
 }
 

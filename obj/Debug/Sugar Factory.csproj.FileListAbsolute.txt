@@ -13,3 +13,9 @@ D:\ТУ-Варна\Семестър 8\Информационни системи\
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Products.resources
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Clients.resources
 D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Sales.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.Catalog.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.ClientsByCity.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.SalesByClient.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.SalesByPrice.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.SalesByQuantity.resources
+D:\ТУ-Варна\Семестър 8\Информационни системи\Sugar Factory\Sugar Factory\obj\Debug\Sugar_Factory.SalesByStock.resources

@@ -61,11 +61,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Catalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog.Designer.cs">
+      <DependentUpon>Catalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clients.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clients.Designer.cs">
       <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsByCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsByCity.Designer.cs">
+      <DependentUpon>ClientsByCity.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -102,8 +114,38 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesByClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesByClient.Designer.cs">
+      <DependentUpon>SalesByClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesByPrice.Designer.cs">
+      <DependentUpon>SalesByPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesByQuantity.Designer.cs">
+      <DependentUpon>SalesByQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesByStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesByStock.Designer.cs">
+      <DependentUpon>SalesByStock.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Catalog.resx">
+      <DependentUpon>Catalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clients.resx">
       <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsByCity.resx">
+      <DependentUpon>ClientsByCity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -122,6 +164,18 @@
     </Compile>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesByClient.resx">
+      <DependentUpon>SalesByClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesByPrice.resx">
+      <DependentUpon>SalesByPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesByQuantity.resx">
+      <DependentUpon>SalesByQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesByStock.resx">
+      <DependentUpon>SalesByStock.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DatabaseDataSet1.xsc">
       <DependentUpon>DatabaseDataSet1.xsd</DependentUpon>

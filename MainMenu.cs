@@ -50,5 +50,47 @@ namespace Sugar_Factory
                 Application.Exit();
             }    
         }
+
+        private void catalogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Catalog catalog = new Catalog();
+            catalog.Show();
+            this.Hide();
+        }
+
+        private void salesByClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesByClient sales_by_client = new SalesByClient();
+            sales_by_client.Show();
+            this.Hide();
+        }
+
+        private void salesByStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesByStock sales_by_stock = new SalesByStock();
+            sales_by_stock.Show();
+            this.Hide();
+        }
+
+        private void salesByPriceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesByPrice sales_by_price = new SalesByPrice();
+            sales_by_price.Show();
+            this.Hide();
+        }
+
+        private void salesByQuantityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalesByQuantity sales_by_quantity = new SalesByQuantity();
+            sales_by_quantity.Show();
+            this.Hide();
+        }
+
+        private void clientsByCityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientsByCity clients_by_city = new ClientsByCity();
+            clients_by_city.Show();
+            this.Hide();
+        }
     }
 }
